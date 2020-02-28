@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% comment %} {% load staticfiles %} {% endcomment %}
+
+{% block body %}
+
+<div class="col-md-8 col-md-offset-2 col-sm-12 maincontent">
+    <div class="detail_book_display">
+        <img class="detail_book.img" src="{% static 'base/img/empty_cover.jpg'%}">
+        <span class="detail_book.title">{{ book.title }}</span>
+        <span class="detail_book.author">{{ book.author }}</span>
+        <span class="detail_book.description">{{ book.description }}
+    </div>
+
+    <div class="detail_book_reviews_title">Reviews</div>
+    <div class="detail_book_review">
+    {% if book.reviews %}
+            {% for review in book.reviews %}
+            {% endfor %}
+        {% else %}
+            Buy now, and be the first to review this book!
+        {% endif%}
+    </div>
+</div>
+
+{% endblock %}
