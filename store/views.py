@@ -6,5 +6,8 @@ from django.http import HttpResponse
 
 def books_list(request):
   books = Book.object.all()
-  # Link to Cheryl's HTML here
-  return render(request, 'core/books_list.html', {'books': books})
+  return render(request, 'base.html', {'books': books})
+
+def book_detail(request, pk):
+  book = get_object_or_404(pk=pk)
+  return render(request, 'store/detail.html', {'book': book} )
