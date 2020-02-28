@@ -1,0 +1,98 @@
+{% extends 'bootstrap3/bootstrap3.html' %}
+{% load staticfiles %}
+{% load bootstrap3 %}
+{% load compress %}
+{% bootstrap_styles theme='simplex' type='min.css' %}
+{% load bootstrap_themes %}
+
+{% block bootstrap3_extra_head %}
+<link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,700" rel="stylesheet" type="text/css">
+
+{% compress css %}
+<link href="{% static 'base/css/style.css' %}" rel="stylesheet" type="text/css">
+{% endcompress %}
+{% endblock %}
+
+{% block bootstrap3_title %}
+{% block title %}
+
+Welcome to BigFarma Bookbarn!
+
+{% endblock %}
+{% endblock %}
+
+{% block bootstrap3_content %}
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+
+        {% comment %} Navigation header {% endcomment %}
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#nav-bar">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+
+            <a href="{% url 'index' %}" class="navbar-brand">Animal Husbandry Books</a>
+        </div>
+
+        {% comment %} Navigation Links {% endcomment %}
+        <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li class="hvr-curl-top-right"><a href="{% url 'index' %}">Home</a></li>
+                <li class="hvr-curl-top-right"><a href='#about'>About</a></li>
+                <li class="hvr-curl-top-right"><a href='#contact'>Contact</a></li>
+                
+            {% if request.user.is_authenticated %}
+                <li class="hvr-curl-top-right"><a hrer="{% url 'cart' %}">Shopping Cart</a></li>
+            {% endif%}
+            </ul>
+        </div> 
+
+        {% comment %} User LogIn, LogOut or Registration {% endcomment %}
+        <div class="navbar-form pull-right"> 
+        {% if request.user.is_authenticated %} Welcome to BigFarma Bookbarn, {% if request.user.first_name %}
+        {{ request.user.first_name }}
+        {% else %}
+        {{ request.user.username }}
+        {% endif %}! <a href="{% url 'auth_logout' %}"> Log Out</a>
+        {% else %}
+        Howdy, friend! <a href="{% url 'auth_login' %}"> Log In </a> or <a href="{% url 'registration_register' %}"> Register</a>
+        {% endif %}
+        </div>
+    </div>
+</nav>
+
+<div class="container-fluid">
+    <img src="{% static 'base/img/get_header.jpg'%}" class="bg"/>
+    <div class="parallax"></div>
+
+    {% block body %}
+    <div class="col-xs-6 col-md-8 col-md-offset-2 col-sm-12 maincontent"></div>
+    <div style="text-align:center"><h3>Welcome to BigFarma Bookbarn!</h3></div>
+    
+    {% for book in books %}
+        <div class="storefront_book_display">
+            <a href="{% url 'book_details' book.id %}">
+            <img src="{% static 'base/img/empty_cover.jpg' %}" />
+            <span class="storefront_book_title"> {{ book.title }}</span>
+            <span class="storefront_book_author"> {{ book.author }}</span>
+            </a>
+            {% if request.user.is_authenticated %}
+                <span class="storefront_add_to_cart">
+                <a href="{% url 'add_to_cart' book.id %}">[Add to Cart]</a>
+                </span>
+            {% endif %}
+        </div>
+    {% endfor %}
+    {% endblock %}
+
+<div class="row text-center navbar footer"></div>
+<div class="col-md-12"> 
+    <p>Animal Husbandry Books</p>
+</div>
+{% endblock %}
+
+
+
+
