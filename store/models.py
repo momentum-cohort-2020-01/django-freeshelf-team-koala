@@ -1,3 +1,4 @@
+from __future__ import unicode_literals
 from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
@@ -6,8 +7,9 @@ from django.contrib.auth.models import User
 class Author(models.Model):
   first_name = models.CharField(max_length=100)
   last_name = models.CharField(max_length=100)
-
-
+  
+  def __str__(self):
+    return f"{self.last_name}, {self.first_name}"
   
 class Book(models.Model):
   title = models.CharField(max_length=100)
