@@ -1,5 +1,5 @@
 {
-  "python.pythonPath": "/Users/geminitus/.local/share/virtualenvs/django-freeshelf-team-koala-V9ka-69s/bin/python",
+  "python.pythonPath": "/usr/local/bin/python3",
   "python.linting.prospectorEnabled": true,
   "python.linting.enabled": true
 }
