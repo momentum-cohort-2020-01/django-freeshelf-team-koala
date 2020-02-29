@@ -5,6 +5,10 @@ body {
   font-color: #fff;
 }
 
+h3 {
+  margin-top: 50px;
+}
+
 /* General link styles*/
 a {
   color: #d8562b;

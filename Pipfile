@@ -9,6 +9,10 @@ prospector = "*"
 [packages]
 django = "*"
 django-extensions = "*"
+django-compressor = "*"
+django-bootstrap3 = "*"
+django-bootstrap-themes = "*"
+django-bootstrap-styles = "*"
 
 [requires]
 python_version = "3.8"

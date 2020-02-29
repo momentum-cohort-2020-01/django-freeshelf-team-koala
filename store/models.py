@@ -6,6 +6,8 @@ from django.contrib.auth.models import User
 class Author(models.Model):
   first_name = models.CharField(max_length=100)
   last_name = models.CharField(max_length=100)
+
+
   
 class Book(models.Model):
   title = models.CharField(max_length=100)
@@ -15,7 +17,7 @@ class Book(models.Model):
   description = models.TextField()
 
 class Cart(models.Model):
-  user = models.ForeignKey(User)
+  user = models.ForeignKey(User, on_delete=models.DO_NOTHING)
   active = models.BooleanField(default=True)
   order_date = models.DateField(null=True)
   payment_type = models.CharField(max_length=100, null=True)
