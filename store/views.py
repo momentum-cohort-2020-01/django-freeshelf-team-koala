@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.shortcuts import redirect, get_object_or_404
 from django.http import HttpResponse
-from .models import Book, Cart, Category, Tag
+from .models import Book, Cart, Category
 
 # Create your views here.
 
