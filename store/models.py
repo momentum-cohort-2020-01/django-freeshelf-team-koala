@@ -11,23 +11,6 @@ class Author(models.Model):
   
   def __str__(self):
     return f"{self.last_name}, {self.first_name}"
-  
-class Book(models.Model):
-  title = models.CharField(max_length=100)
-  author = models.ForeignKey(Author, on_delete=models.DO_NOTHING)
-  publish_date = models.DateField(default=timezone.now)
-  price = models.DecimalField(decimal_places=2, max_digits=8)
-  description = models.TextField()
-  created_at = models.DateTimeField(auto_now_add=True)
-  slug = models.SlugField(null=False, unique=True)
-  category = models.ForeignKey('Category', on_delete=models.DO_NOTHING)
-
-class Cart(models.Model):
-  user = models.ForeignKey(User, on_delete=models.DO_NOTHING)
-  active = models.BooleanField(default=True)
-  order_date = models.DateField(null=True)
-  payment_type = models.CharField(max_length=100, null=True)
-  payment_id = models.CharField(max_length=100, null=True)
 
 class Category(models.Model):
   title = models.CharField(max_length=100)
@@ -40,3 +23,20 @@ class Category(models.Model):
         if not self.slug:
             self.slug = slugify(self.title)
         return super().save(*args, **kwargs) 
+  
+class Book(models.Model):
+  title = models.CharField(max_length=100)
+  author = models.ForeignKey(Author, on_delete=models.DO_NOTHING)
+  publish_date = models.DateField(default=timezone.now)
+  price = models.DecimalField(decimal_places=2, max_digits=8)
+  description = models.TextField()
+  created_at = models.DateTimeField(auto_now_add=True)
+  category = models.ForeignKey(Category, on_delete=models.DO_NOTHING, null=True, blank=True)
+
+class Cart(models.Model):
+  user = models.ForeignKey(User, on_delete=models.DO_NOTHING)
+  active = models.BooleanField(default=True)
+  order_date = models.DateField(null=True)
+  payment_type = models.CharField(max_length=100, null=True)
+  payment_id = models.CharField(max_length=100, null=True)
+
