@@ -2,6 +2,7 @@ from __future__ import unicode_literals
 from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
+from django.utils.text import slugify
 
 # Create your models here.
 class Author(models.Model):
@@ -18,6 +19,8 @@ class Book(models.Model):
   price = models.DecimalField(decimal_places=2, max_digits=8)
   description = models.TextField()
   created_at = models.DateTimeField(auto_now_add=True)
+  slug = models.SlugField(null=False, unique=True)
+  category = models.ForeignKey('Category', on_delete=models.DO_NOTHING)
 
 class Cart(models.Model):
   user = models.ForeignKey(User, on_delete=models.DO_NOTHING)
@@ -26,3 +29,14 @@ class Cart(models.Model):
   payment_type = models.CharField(max_length=100, null=True)
   payment_id = models.CharField(max_length=100, null=True)
 
+class Category(models.Model):
+  title = models.CharField(max_length=100)
+  slug = models.SlugField(null=False, unique=True)
+
+  def __str__(self):
+    return f"{self.title}"
+  
+  def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.title)
+        return super().save(*args, **kwargs) 
