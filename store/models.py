@@ -17,6 +17,7 @@ class Book(models.Model):
   publish_date = models.DateField(default=timezone.now)
   price = models.DecimalField(decimal_places=2, max_digits=8)
   description = models.TextField()
+  created_at = models.DateTimeField(auto_now_add=True)
 
 class Cart(models.Model):
   user = models.ForeignKey(User, on_delete=models.DO_NOTHING)

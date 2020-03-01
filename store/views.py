@@ -9,7 +9,7 @@ def index(request):
   return render(request, 'template.html')
 
 def store(request):
-  books = Book.objects.all()
+  books = Book.objects.order_by('-created_at')
   return render(request, 'base.html', {'books': books})
 
 def book_details(request, pk):
