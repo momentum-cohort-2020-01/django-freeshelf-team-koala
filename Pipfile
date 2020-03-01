@@ -13,6 +13,7 @@ django-compressor = "*"
 django-bootstrap3 = "*"
 django-bootstrap-themes = "*"
 django-bootstrap-styles = "*"
+compressor = "*"
 
 [requires]
 python_version = "3.8"
