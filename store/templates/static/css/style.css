@@ -27,6 +27,17 @@ a:hover {
   opacity: 0.9;
   color: #e6e6e6;
 }
+
+.navbar-inverse .navbar-brand {
+  display: flex;
+  align-items: center;
+  padding: 5px;
+}
+.navbar-brand img {
+  height: 100%;
+  margin-right: 20px;
+}
+
 #navbar .navbar-nav li a {
   color: #d8562b;
 }

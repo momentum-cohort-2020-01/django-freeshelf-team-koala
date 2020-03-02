@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+<div>
+  <a href="/">👈 Back </a>
+</div>
+
+{% block heading %}
+<h2>{{ category }} </h2>
+{% endblock %}
+
+{% block content %}
+
+  <div>
+    <h1>These are {{category.name}} Books</h1>
+        {% for book in books %}
+            <ul>{{book}}</ul>
+  </div>
+
+{% endfor %}
+{% endblock %}

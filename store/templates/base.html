@@ -20,23 +20,26 @@ Welcome to BigFarma Bookbarn!
 
 {% block bootstrap3_content %}
 {% comment %} <nav class="navbar navbar-inverse navbar-fixed-top"> {% endcomment %}
-  <nav class="navbar navbar-fixed-top">
+  <nav class="navbar navbar-.bg-transparent navbar-fixed-top">
       <div class="container">
-
           {% comment %} Navigation header {% endcomment %}
           <div class="navbar-header">
-              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#nav-bar">
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-              </button>
+            <a class="navbar-brand" href="#">
+            <img classs="img-responsive" width="130px" height="" 
+            <img src="https://source.unsplash.com/nC1wKaL-mgU/1600x900" alt="Image" height="60" width="60">
+            </a><br><br><br><br>
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#nav-bar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
 
           {% comment %} Navigation Links {% endcomment %}
           <div id="navbar" class="collapse navbar-collapse">
               <ul class="nav navbar-nav">
                   <li class="hvr-curl-top-right"><a href="{% url 'index' %}">Home</a></li>
-                  <li class="hvr-curl-top-right"><a href='#about'>About</a></li>
-                  <li class="hvr-curl-top-right"><a href='#shop'>Shop</a></li>
+                  <li class="hvr-curl-top-right"><a href='#author'>Authors</a></li>
+                  <li class="hvr-curl-top-right"><a href='#category'>Category</a></li>
               </ul>
           </div>
       </div>
@@ -49,8 +52,9 @@ Welcome to BigFarma Bookbarn!
     {% block body %}
     <div class="col-md-8 col-md-offset-2 col-sm-12 maincontent"></div>
     <div style="text-align:center">
-        <h2 style="margin-top: 50px">Welcome to BigFarma Bookbarn!</h2>
-        <h4>Farming and Animal Husbandry Books</h4>
+    
+        <h2 style="margin-top: 50px" "color: green">Welcome to BigFarma Bookbarn!</h2>
+        <h4>Farm Agronomy and Animal Husbandry Books</h4>
    
         {% comment %} <img src="{% static 'static/img/header.jpg'%}" class="bg" /> {% endcomment %}
     </div>
@@ -61,6 +65,8 @@ Welcome to BigFarma Bookbarn!
             {% comment %} <img src="{% static 'img/empty_cover.jpg' %}" /> {% endcomment %}
             <span class="storefront_book_title"> {{ book.title }}</span>
             <span class="storefront_book_author"> {{ book.author }}</span>
+            <span class="storefront_book_price"> {{ book.author }}</span>
+            <span class="storefront_book_category"> {{ book.author }}</span>
         </a>
 
     </div>
