@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends 'base.html' %}
 
 <div>
   <a href="/">👈 Back </a>
@@ -10,11 +10,11 @@
 
 {% block content %}
 
-  <div>
-    <h1>These are {{category.name}} Books</h1>
-        {% for book in books %}
-            <ul>{{book}}</ul>
-  </div>
+<div>
+  <h1>These are {{category.name}} Books</h1>
+  {% for book in books %}
+  <ul>{{book}}</ul>
+</div>
 
 {% endfor %}
 {% endblock %}
