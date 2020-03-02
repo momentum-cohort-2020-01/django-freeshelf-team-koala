@@ -43,14 +43,14 @@ class Book(models.Model):
         return f'{self.title}'
 
 
-class Image(models.Model):
-    image_name = models.CharField(max_length=400)
-    imagefile = models.FileField(
-        upload_to='images', null=True, verbose_name=None)
+# class Image(models.Model):
+#     image_name = models.CharField(max_length=400)
+#     imagefile = models.FileField(
+#         upload_to='images', null=True, verbose_name=None)
 
-    def __str__(self):
-        return f'{self.name} {self.imagefile}'
-        return f"Book: {self.title} description: {self.description}"
+#     def __str__(self):
+#         return f'{self.name} {self.imagefile}'
+#         return f"Book: {self.title} description: {self.description}"
 
 
 class Cart(models.Model):

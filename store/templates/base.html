@@ -40,25 +40,24 @@ Welcome to BigFarma Bookbarn!
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
             </button>
 
           {% comment %} Navigation Links {% endcomment %}
           <div id="navbar" class="collapse navbar-collapse">
               <ul class="nav navbar-nav">
-                  <li class="hvr-curl-top-right"><a href="base.html">Home</a></li>
-                  <li class="hvr-curl-top-right"><a href="author.html">Authors</a></li>
-                  <li class="hvr-curl-top-right"><a href=href="detail.html">Details</a></li>
+                  <li class="hvr-curl-top-right"><a href="{% url 'index' %}">Home</a></li>
+                  <li class="hvr-curl-top-right"><a href="{% url 'author' %}">Authors</a></li>
+                  {% comment %} <li class="hvr-curl-top-right"><a href="{% url 'category' %}">Categories</a></li> {% endcomment %}
                   <li class="hvr-curl-top-right">
-                  <a class='login' href="/accounts/login">Login</a></li>
-                  <li class="hvr-curl-top-right"><a class='register' href="/accounts/register">Register</a></li>
+                  <a class='login' href="#login">Login</a></li>
+                  {% comment %} <li class="hvr-curl-top-right">
+                  <a class='login' href="{% url 'login' %}">Login</a></li> {% endcomment %}
               </ul>
           </div>
       </div>
   </nav>
 
 <div class="container-fluid">
-    {% comment %} <img src="{% static 'static/img/header.jpg'%}" class="bg" /> {% endcomment %}
     <div class="parallax"></div>
 
     {% block body %}
@@ -83,6 +82,3 @@ Welcome to BigFarma Bookbarn!
 
 </div>
 {% endblock %}
-
-
-            
