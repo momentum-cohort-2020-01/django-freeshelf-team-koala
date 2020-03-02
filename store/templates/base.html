@@ -20,7 +20,7 @@ Welcome to BigFarma Bookbarn!
 
 {% block bootstrap3_content %}
 {% comment %} <nav class="navbar navbar-inverse navbar-fixed-top"> {% endcomment %}
-<<<<<<< HEAD
+
   <nav class="navbar navbar-.bg-transparent navbar-fixed-top">
       <div class="container">
           {% comment %} Navigation header {% endcomment %}
@@ -46,9 +46,9 @@ Welcome to BigFarma Bookbarn!
           </div>
       </div>
   </nav>
-
+    <hr>
 <div class="container-fluid">
-    {% comment %} <img src="{% static 'static/img/header.jpg'%}" class="bg" /> {% endcomment %}
+
     <div class="parallax"></div>
 
     {% block body %}
@@ -57,15 +57,21 @@ Welcome to BigFarma Bookbarn!
     
         <h2 style="margin-top: 50px" "color: green">Welcome to BigFarma Bookbarn!</h2>
         <h4>Farm Agronomy and Animal Husbandry Books</h4>
+        </div> <hr>
 
-
+        {% for book in books %}
+        <div class="storefront_book_display">
+            <a href="{% url 'book_details' book.id %}">
+                <img src="{% static 'img/empty_cover.jpg' %}" />
+                <span class="storefront_book_title"> {{ book.title }}</span>
+                <span class="storefront_book_author"> {{ book.author }}</span>
+            </a>
         </div>
         {% endfor %}
         {% endblock %}
 
         <div class="row text-center navbar footer"></div>
         <div class="col-md-12">
-
 
     </div>
     {% endblock %}
