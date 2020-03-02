@@ -28,6 +28,7 @@ Welcome to BigFarma Bookbarn!
             <img classs="img-responsive" width="130px" height="" 
             <img src="https://source.unsplash.com/nC1wKaL-mgU/1600x900" alt="Image" height="60" width="60">
             </a><br><br><br><br>
+    
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#nav-bar">
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
@@ -59,14 +60,15 @@ Welcome to BigFarma Bookbarn!
         {% comment %} <img src="{% static 'static/img/header.jpg'%}" class="bg" /> {% endcomment %}
     </div>
 
+    <hr>
+
     {% for book in books %}
     <div class="storefront_book_display">
         <a href="{% url 'book_details' book.id %}">
             {% comment %} <img src="{% static 'img/empty_cover.jpg' %}" /> {% endcomment %}
-            <span class="storefront_book_title"> {{ book.title }}</span>
+            <span class="storefront_book_title"> <strong>{{ book.title }}</strong> </span>
             <span class="storefront_book_author"> {{ book.author }}</span>
-            <span class="storefront_book_price"> {{ book.author }}</span>
-            <span class="storefront_book_category"> {{ book.author }}</span>
+            <span class="storefront_book_category"> {{ book.category }}</span>
         </a>
 
     </div>
