@@ -52,4 +52,3 @@ def index(request):
 #     return render(request, 'store/cart.html', {'cart': orders, 'total': total, 'count': count,})
 #   else:
 #     return redirect('index')
-

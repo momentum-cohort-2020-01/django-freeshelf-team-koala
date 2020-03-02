@@ -23,7 +23,7 @@
     {% for book in books %}
         <div id ="{{book.pk}}">
             <h2> <a style="font-weight: bold;" href="{% url 'book-detail' book.pk %}">{{ book.title }}</a></h2>
-            <p>{{book.price}}</p>
+            <p>${{book.price}}</p>
             <p>{{book.author}}</p>
             <h4> <a style="font-weight: bold;" href="{% url 'author' book.author.pk %}">{{ book.author }}</a></h4>
             <h4> <a style="font-weight: bold;" href="{% url 'category' book.category.pk %}">{{ book.category }}</a></h4>
