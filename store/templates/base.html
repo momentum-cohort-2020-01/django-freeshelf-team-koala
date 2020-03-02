@@ -21,16 +21,23 @@ Welcome to BigFarma Bookbarn!
 {% block bootstrap3_content %}
 {% comment %} <nav class="navbar navbar-inverse navbar-fixed-top"> {% endcomment %}
 
-  <nav class="navbar navbar-.bg-transparent navbar-fixed-top">
+{% comment %} <div class="navbar transparent navbar-inverse navbar-static-top hr">
+  <nav class="navbar navbar-.bg-transparent navbar-fixed-top"> {% endcomment %}
+
+
+  <nav class="navbar transparent navbar-static-top hr">
       <div class="container">
           {% comment %} Navigation header {% endcomment %}
           <div class="navbar-header">
             <a class="navbar-brand" href="#">
             <img classs="img-responsive" width="130px" height="" 
             <img src="https://source.unsplash.com/nC1wKaL-mgU/1600x900" alt="Image" height="60" width="60">
-            </a><br><br><br><br>
+            </a>
+            <br><br><br><br>
     
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#nav-bar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
@@ -39,39 +46,43 @@ Welcome to BigFarma Bookbarn!
           {% comment %} Navigation Links {% endcomment %}
           <div id="navbar" class="collapse navbar-collapse">
               <ul class="nav navbar-nav">
-                  <li class="hvr-curl-top-right"><a href="index.html">Home</a></li>
+                  <li class="hvr-curl-top-right"><a href="base.html">Home</a></li>
                   <li class="hvr-curl-top-right"><a href="author.html">Authors</a></li>
                   <li class="hvr-curl-top-right"><a href=href="detail.html">Details</a></li>
+                  <li class="hvr-curl-top-right">
+                  <a class='login' href="/accounts/login">Login</a></li>
+                  <li class="hvr-curl-top-right"><a class='register' href="/accounts/register">Register</a></li>
               </ul>
           </div>
       </div>
   </nav>
-    <hr>
-<div class="container-fluid">
 
+<div class="container-fluid">
+    {% comment %} <img src="{% static 'static/img/header.jpg'%}" class="bg" /> {% endcomment %}
     <div class="parallax"></div>
 
     {% block body %}
     <div class="col-md-8 col-md-offset-2 col-sm-12 maincontent"></div>
     <div style="text-align:center">
-    
-        <h2 style="margin-top: 50px" "color: green">Welcome to BigFarma Bookbarn!</h2>
-        <h4>Farm Agronomy and Animal Husbandry Books</h4>
-        </div> <hr>
+        <h2 style="margin-top: 3px; color: green">Welcome to BigFarma Bookbarn!</h2>
+        <h4>Farm Agronomy and Animal Husbandry Books</h4><hr>
+    </div>
 
         {% for book in books %}
         <div class="storefront_book_display">
             <a href="{% url 'book_details' book.id %}">
-                <img src="{% static 'img/empty_cover.jpg' %}" />
-                <span class="storefront_book_title"> {{ book.title }}</span>
-                <span class="storefront_book_author"> {{ book.author }}</span>
+                <span style="text-align:left" class="storefront_book_title"><strong>{{ book.title }}</strong></span><br>
+                <span style="text-align:left" class="storefront_book_author">{{ book.author}}</span><br><br>
             </a>
         </div>
-        {% endfor %}
-        {% endblock %}
-
-        <div class="row text-center navbar footer"></div>
-        <div class="col-md-12">
-
-    </div>
+    {% endfor %}
     {% endblock %}
+
+    <div class="row text-center navbar footer"></div>
+    <div class="col-md-12">
+
+</div>
+{% endblock %}
+
+
+            
