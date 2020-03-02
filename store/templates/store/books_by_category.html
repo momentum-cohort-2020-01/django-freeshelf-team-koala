@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>These are {{tag.name}} Books</h1>
+<h1>These are {{category.title}} Books</h1>
 {% for book in books %}
 <ul>{{book}}</ul>
 {% endfor %}

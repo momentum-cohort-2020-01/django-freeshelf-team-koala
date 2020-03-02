@@ -1,0 +1,40 @@
+<div>
+  <a href="/">👈 Back </a>
+</div>
+
+{% extends "base.html" %}
+
+{% block title%} 
+    <title>BigFarma Bookbarn</title>
+{% endblock %}
+
+ {% block content %}
+
+    <h1>Farm Agronomy and Animal Husbandry Books</h1>
+
+    <nav class='nav'>
+        <ul class='category_links'>{% for category in categories %}
+             <li><a href="{% url 'subject' category.pk %}">{{ category }}</a></li>
+        </ul>
+    {% endfor %}
+    </nav>
+
+  
+    {% for book in books %}
+        <div id ="{{book.pk}}">
+            <h2> <a style="font-weight: bold;" href="{% url 'book-detail' book.pk %}">{{ book.title }}</a></h2>
+            <p>{{book.price}}</p>
+            <p>{{book.author}}</p>
+            <h4> <a style="font-weight: bold;" href="{% url 'author' book.author.pk %}">{{ book.author }}</a></h4>
+            <h4> <a style="font-weight: bold;" href="{% url 'category' book.category.pk %}">{{ book.category }}</a></h4>
+            <p>{{book.publish_date}}</p>
+            <p>{{book.category}}</p>
+            <p>{{book.review}}</p>
+
+        </div>
+
+
+    {% endfor %}
+
+ 
+    {% endblock %}

@@ -4,7 +4,8 @@ BOOKS = {
         "author": "Federico Tesio",
         "price": "15.42",
         "publish_date": "01 Jan 2000",
-        "reviews": """ """,
+        "review": """ """,
+        "category": "Breeding",
         "description": """There is no book - there can be no book - that will infallibly point the way to successful bloodstock breeding. Yet in the General Stud Book, the sport of horse racing has produced a genetic record extending over more than two centuries and a score of generations that contains an ordered store of facts about the hereditary qualities of one living species - data that no scientific body possesses. Here is the recorded experience of the man who, above all others of our time, has deciphered the riddle of its manifold pages: Federico Tesio.""",
     },
     "2": {

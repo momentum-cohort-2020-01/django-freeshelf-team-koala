@@ -34,27 +34,26 @@ class Book(models.Model):
     publish_date = models.DateField(default=timezone.now)
     price = models.DecimalField(decimal_places=2, max_digits=8)
     description = models.TextField()
+    reviews = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
     category = models.ForeignKey(
         Category, on_delete=models.DO_NOTHING, null=True, blank=True)
-    tag = models.ForeignKey(
-        'Tag', on_delete=models.DO_NOTHING, null=True, blank=True)
 
     def __str__(self):
-        return f"Note item: {self.item} description: {self.description}"
+<<<<<<< HEAD
+        return f'{self.title}'
 
 
-class Tag(models.Model):
-    name = models.CharField(max_length=40)
-    slug = models.SlugField(null=False, unique=True)
+class Image(models.Model):
+    image_name = models.CharField(max_length=400)
+    imagefile = models.FileField(
+        upload_to='images', null=True, verbose_name=None)
 
     def __str__(self):
-        return f'{self.name}'
-
-    def save(self, *args, **kwargs):
-        if not self.slug:
-            self.slug = slugify(self.name)
-        return super().save(*args, **kwargs)
+        return f'{self.name} {self.imagefile}'
+=======
+        return f"Book: {self.title} description: {self.description}"
+>>>>>>> 8275a08d99f6208f2516237e232a86edc3a5eec7
 
 
 class Cart(models.Model):

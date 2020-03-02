@@ -4,7 +4,8 @@ from .models import Book, Author
 
 
 class BookAdmin(admin.ModelAdmin):
-    list_display = ('title', 'author', 'price',)
+    list_display = ('title', 'author', 'price', 'publish_date',
+                    'category', 'description',)
 
 
 class AuthorAdmin(admin.ModelAdmin):

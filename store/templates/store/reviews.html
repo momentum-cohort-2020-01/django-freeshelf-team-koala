@@ -5,23 +5,14 @@
 </div>
 
 {% block heading %}
-<h2>{{ book.title }} </h2>
+<h2>{{ review }} </h2>
 {% endblock %}
 
 {% block content %}
-<p>{{ book.category }} </p>
-<h2>{{ book.title }} </h2>
-<p>{{ book.author }} </p>
-<p>{{ book.price}} </p>
-<p>{{ book.publish_date}} </p>
-<p>{{ book.description}} </p>
-<p>{{ book.review }} </p>
-<p>{{ book.category }} </p>
 
-
-<div class="book" id="{{ book.pk }}">
-  <p style="margin: 0 25px 50px;">{{ book.description }}</p>
-</div>
+  <div>
+    <h1> {{review}} </h1>
+  </div>
 
 
     <div class="detail_book_reviews_title">Reviews</div>
@@ -35,9 +26,5 @@
     </div>
 </div>
 
+
 {% endblock %}
-
-
-
-
-

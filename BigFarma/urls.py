@@ -32,6 +32,7 @@ urlpatterns = [
     # path('store/add/<int:pk>/', views.add_to_cart, name = 'add_to_cart'),
     # path('store/remove/<int:pk>/', views.remove_from_cart, name = 'remove_from_cart'),
     # path('store/cart/', views.cart, name = 'cart'),
-    path('store/<slug:slug>', views.books_by_category, name='books_by_category'),
+    path('store/<slug:slug>', views.books_by_category, name = 'books_by_category'),
+    path('about', views.about, name = 'about'),
     path('admin/', admin.site.urls),
 ]
