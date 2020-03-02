@@ -5,22 +5,24 @@
 </div>
 
 {% block heading %}
-<h2>{{ author }} </h2>
+<h2>{{ authors }} </h2>
 {% endblock %}
 
-{% block content %}
-    <div id="navbar" class="collapse navbar-collapse">
-        <ul class="nav navbar-nav">
-            <li class="hvr-curl-top-right"><a href="index.html">Home</a></li>
-            <li class="hvr-curl-top-right"><a href="author.html">Authors</a></li>
-            <li class="hvr-curl-top-right"><a href=href="detail.html">Details</a></li>
-        </ul>
-    </div>
-    
-  <div>
-    <h1>Authors</h1>
-    <h1> {{author}} </h1>
-  </div>
+{% block body %}
+<div id="navbar" class="collapse navbar-collapse">
+  <ul class="nav navbar-nav">
+    <li class="hvr-curl-top-right"><a href="index.html">Home</a></li>
+    <li class="hvr-curl-top-right"><a href="author.html">Authors</a></li>
+    <li class="hvr-curl-top-right"><a href=href="detail.html">Details</a></li>
+  </ul>
+</div>
+
+<div>
+  <h1>Authors</h1>
+  {% for author in authors %}
+  <h3> {{author.first_name}} {{author.last_name}} </h3>
+  {% endfor %}
+</div>
 
 
 {% endblock %}
