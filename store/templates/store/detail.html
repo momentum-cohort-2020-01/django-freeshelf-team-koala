@@ -1,41 +1,31 @@
-{% extends "base.html" %}
+{% extends 'base.html' %}
 
-<div>
-  <a href="/">👈 Back </a>
-</div>
+{% load static %}
 
-{% block heading %}
-<h2>{{ book.title }} </h2>
-{% endblock %}
 
 {% block body %}
 <div class="detail-container">
-  <strong><h4>{{ book.title }}</h4></strong>
-  <p>{{ book.author }} </p>
-  <p>${{ book.price}} </p>
-  <p>{{ book.publish_date}} </p>
-  <p>{{ book.description}} </p>
-  <p>{{ book.review }} </p>
-  <div class="category">More like this: <a href="/books/{{book.category}}">{{book.category}}</a></div>
+    <strong>
+        <h4>{{ book.title }}</h4>
+    </strong>
+    <p>{{ book.author }} </p>
+    <p>${{ book.price}} </p>
+    <p>{{ book.publish_date}} </p>
+    <p>{{ book.description}} </p>
+    <p>{{ book.review }} </p>
+    <div class="category">More like this: <a href="/books/{{book.category}}">{{book.category}}</a></div>
 </div>
 
 
-{% comment %} <div class="book" id="{{ book.pk }}">
-  <p style="margin: 0 25px 50px;">{{ book.description }}</p>
-</div> {% endcomment %}
-
-    <div class="detail_book_reviews_title">Reviews</div>
-    <div class="detail_book_review">
-        {% if book.reviews %}
-        {% for review in book.reviews %}
-        {% endfor %}
-        {% else %}
-        Buy now, and be the first to review this book!
-        {% endif%}
-    </div>
+<div class="detail_book_reviews_title">Reviews</div>
+<div class="detail_book_review">
+    {% if book.reviews %}
+    {% for review in book.reviews %}
+    {% endfor %}
+    {% else %}
+    Buy now, and be the first to review this book!
+    {% endif%}
+</div>
 </div>
 
 {% endblock %}
-
-
-

@@ -43,6 +43,7 @@ class Book(models.Model):
         return f'{self.title}'
 
 
+
 # class Image(models.Model):
 #     image_name = models.CharField(max_length=400)
 #     imagefile = models.FileField(

@@ -1,19 +1,12 @@
 {% extends "base.html" %}
+{% load static %}
+{% block body %}
 
 <div>
-  <a href="/">👈 Back </a>
+  <h1 style="text-align: center; margin-top: 120px;">Authors</h1>
+  {% for author in authors %}
+  <h3> {{author.first_name}} {{author.last_name}} </h3>
+  {% endfor %}
 </div>
-
-{% block heading %}
-<h2>{{ author }} </h2>
-{% endblock %}
-
-{% block content %}
-    
-  <div>
-    <h1>Authors</h1>
-    <h1> {{author}} </h1>
-  </div>
-
 
 {% endblock %}

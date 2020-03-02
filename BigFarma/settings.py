@@ -71,6 +71,11 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'BigFarma.wsgi.application'
 
+AUTHENTICATION_BACKENDS = (
+
+    'django.contrib.auth.backends.ModelBackend',
+)
+
 
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
@@ -145,4 +150,6 @@ DEFAULT_FROM_EMAIL = "books@mysterybooks.com"
 
 # Social Auth - Facebook
 SOCIAL_AUTH_FACEBOOK_KEY = '474386242949892'
+
 SOCIAL_AUTH_FACEBOOK_SECRET = 'add77ef829941450dde5a0c1138d875a'
+
