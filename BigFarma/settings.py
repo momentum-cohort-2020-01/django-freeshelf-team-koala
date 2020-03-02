@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'bootstrap_themes',
     'compressor',
     'store',
+    'registration',
 ]
 
 MIDDLEWARE = [
@@ -141,7 +142,7 @@ LOGIN_REDIRECT_URL = '/store/'
 # Email settings
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 EMAIL_HOST = "smtp.gmail.com"
-EMAIL_HOST_USER = "sherylbernard10@gmail.com"
+EMAIL_HOST_USER = "atsmith522@gmail.com"
 EMAIL_HOST_PASSWORD = "sbcpkwwjeowquhfc"
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True

@@ -21,7 +21,7 @@ from store import views
 
 urlpatterns = [
     path('', views.store, name = 'index'),
-    # url(r'^accounts/', include('registration.backends.default.urls')),
+    path('accounts/', include('registration.backends.default.urls')),
     # path('accounts/activate', views.activate, name = 'activate'),
     # path('accounts/activation-complete', views.activation_complete, name = 'activation_complete'),
     # path('accounts/login', views.login, name = 'login'),
