@@ -38,3 +38,4 @@ def books_by_category(request, slug):
 #     return render(request, 'store/cart.html', {'cart': orders, 'total': total, 'count': count,})
 #   else:
 #     return redirect('index')
+
