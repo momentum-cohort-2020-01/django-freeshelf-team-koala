@@ -39,7 +39,7 @@ class Book(models.Model):
         Category, on_delete=models.DO_NOTHING, null=True, blank=True)
 
     def __str__(self):
-        return f"Note item: {self.item} description: {self.description}"
+        return f"Book: {self.title} description: {self.description}"
 
 
 class Cart(models.Model):

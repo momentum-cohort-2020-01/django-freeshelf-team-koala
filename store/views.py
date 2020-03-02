@@ -25,6 +25,9 @@ def books_by_category(request, slug):
     books_for_category = Book.objects.filter(category=category)
     return render(request, 'store/books_by_tag.html', {'books': books_for_category, 'category': category})
 
+def about(request):
+    return render(request, 'about.html')
+
 
 # def cart(request):
 #   if request.user.is_authenticated():
