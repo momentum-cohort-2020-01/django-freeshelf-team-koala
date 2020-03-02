@@ -33,6 +33,6 @@ urlpatterns = [
     # path('store/remove/<int:pk>/', views.remove_from_cart, name = 'remove_from_cart'),
     # path('store/cart/', views.cart, name = 'cart'),
     path('store/<slug:slug>', views.books_by_category, name = 'books_by_category'),
-    path('about', views.about, name = 'about'),
+    path('author', views.author, name = 'author'),
     path('admin/', admin.site.urls),
 ]

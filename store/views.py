@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.shortcuts import redirect, get_object_or_404
 from django.http import HttpResponse
-from .models import Book, Cart, Category
+from .models import Book, Cart, Category, Author
 
 # Create your views here.
 
@@ -18,9 +18,9 @@ def book_details(request, pk):
     return render(request, 'store/detail.html', {'book': book})
 
 
-def author(request, pk):
-    author = Author.objects.get(pk=pk)
-    return render(request, 'store/author.html', {'author': author, 'pk': pk})
+def author(request):
+    authors = Author.objects.all()
+    return render(request, 'store/author.html', {'authors': authors})
 
 
 def store(request):
@@ -37,8 +37,7 @@ def books_by_category(request, slug):
 def index(request):
     return render(request, 'index.html')
 
-def about(request):
-    return render(request, 'about.html')
+
 
 
 # def cart(request):
