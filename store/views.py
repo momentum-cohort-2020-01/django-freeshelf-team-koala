@@ -34,8 +34,14 @@ def books_by_category(request, slug):
     return render(request, 'store/category.html', {'books': books_for_category, 'category': category})
 
 
+<<<<<<< HEAD
 def index(request):
     return render(request, 'index.html')
+=======
+def about(request):
+    return render(request, 'about.html')
+
+>>>>>>> 8275a08d99f6208f2516237e232a86edc3a5eec7
 
 # def cart(request):
 #   if request.user.is_authenticated():
