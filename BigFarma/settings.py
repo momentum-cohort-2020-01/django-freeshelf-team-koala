@@ -128,6 +128,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
 STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 COMPRESS_ENABLED = True
 STATICFILES_FINDERS = (
@@ -152,4 +153,6 @@ DEFAULT_FROM_EMAIL = "books@mysterybooks.com"
 
 # Social Auth - Facebook
 SOCIAL_AUTH_FACEBOOK_KEY = '474386242949892'
+
 SOCIAL_AUTH_FACEBOOK_SECRET = 'add77ef829941450dde5a0c1138d875a'
+

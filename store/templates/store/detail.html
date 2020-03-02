@@ -1,14 +1,15 @@
 {% extends 'base.html' %}
 
-{% load staticfiles %}
+{% load static %}
 
 {% block body %}
 
 <div class="col-md-8 col-md-offset-2 col-sm-12 maincontent">
-    <div class="detail_book_display">
+    <div class="detail_book_display" style="margin-top: 50px;">
         <img class="detail_book.img" src="{% static 'base/img/empty_cover.jpg'%}">
         <span class="detail_book.title">{{ book.title }}</span>
         <span class="detail_book.author">{{ book.author }}</span>
+        <span class="detail_book.category">{{book.category}}</span>
         <span class="detail_book.price">{{ book.price }}</span>
         <span class="detail_book.publish_date">{{ book.publish_date }}</span>
         <div class="detail_book.description">{{ book.description }}</div>
@@ -16,11 +17,11 @@
 
     <div class="detail_book_reviews_title">Reviews</div>
     <div class="detail_book_review">
-    {% if book.reviews %}
-            {% for review in book.reviews %}
-            {% endfor %}
+        {% if book.reviews %}
+        {% for review in book.reviews %}
+        {% endfor %}
         {% else %}
-            Buy now, and be the first to review this book!
+        Buy now, and be the first to review this book!
         {% endif%}
     </div>
 </div>
