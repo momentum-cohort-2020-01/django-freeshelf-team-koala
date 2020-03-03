@@ -1,10 +1,11 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
 from .models import Book, Cart, Category, Author
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
-
+@login_required
 def homepage(request):
     books = Book.objects.all()
     category = Category.objects.all()

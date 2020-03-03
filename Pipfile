@@ -15,6 +15,7 @@ django-bootstrap-themes = "*"
 django-bootstrap-styles = "*"
 compressor = "*"
 django-pillow = "*"
+django-registration = "*"
 
 [requires]
 python_version = "3.8"

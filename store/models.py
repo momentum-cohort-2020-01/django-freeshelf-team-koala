@@ -38,7 +38,7 @@ class Book(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     category = models.ForeignKey(
         Category, on_delete=models.DO_NOTHING, null=True, blank=True)
-
+    img = ImageField(upload_to='images')
     def __str__(self):
         return f'{self.title}'
 
@@ -60,3 +60,7 @@ class Cart(models.Model):
     order_date = models.DateField(null=True)
     payment_type = models.CharField(max_length=100, null=True)
     payment_id = models.CharField(max_length=100, null=True)
+
+class Favorite(models.Model):
+    person = models.ForeignKey(User, on_delete=models.CASCADE)
+    book = models.ForeignKey(Book, on_delete=models.CASCADE)

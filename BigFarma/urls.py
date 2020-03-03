@@ -21,13 +21,7 @@ from store import views
 
 urlpatterns = [
     path('', views.store, name='index'),
-    # url(r'^accounts/', include('registration.backends.default.urls')),
-    # path('accounts/activate', views.activate, name = 'activate'),
-    # path('accounts/activation-complete', views.activation_complete, name = 'activation_complete'),
-    # path('accounts/login', views.login, name = 'login'),
-    # path('accounts/logout', views.logout, name = 'logout'),
-    # path('accounts/registration', views.registration, name = 'registration'),
-    # path('accounts/registration-complete', views.registration-complete, name ='registration_complete'),
+    path('accounts/', include('registration.backends.default.urls')),
     path('store/<int:pk>/', views.book_details, name='book_details'),
     # path('store/add/<int:pk>/', views.add_to_cart, name = 'add_to_cart'),
     # path('store/remove/<int:pk>/', views.remove_from_cart, name = 'remove_from_cart'),

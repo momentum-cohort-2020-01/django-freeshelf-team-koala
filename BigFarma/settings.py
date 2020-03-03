@@ -28,7 +28,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    # registration,
+    'registration',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -137,16 +137,11 @@ STATICFILES_FINDERS = (
 # Registration
 ACCOUNT_ACTIVATION_DAYS = 7
 REGISTRATION_AUTO_LOGIN = True
-LOGIN_REDIRECT_URL = '/store/'
+LOGIN_REDIRECT_URL = '/'
 
 # Email settings
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
-EMAIL_HOST = "smtp.gmail.com"
-EMAIL_HOST_USER = "sherylbernard10@gmail.com"
-EMAIL_HOST_PASSWORD = "sbcpkwwjeowquhfc"
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
-DEFAULT_FROM_EMAIL = "books@mysterybooks.com"
+
 
 # Social Auth - Facebook
 SOCIAL_AUTH_FACEBOOK_KEY = '474386242949892'
