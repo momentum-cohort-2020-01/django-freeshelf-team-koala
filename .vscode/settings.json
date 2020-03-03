@@ -1,5 +1,5 @@
 {
-  "python.pythonPath": "/Library/Frameworks/Python.framework/Versions/3.8/bin/python3",
+  "python.pythonPath": "/Users/thunda/.local/share/virtualenvs/django-freeshelf-team-koala-rR0CYtqt/bin/python",
 
   "python.linting.prospectorEnabled": true,
   "python.linting.enabled": true

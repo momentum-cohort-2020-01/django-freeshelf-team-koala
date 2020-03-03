@@ -27,6 +27,12 @@
             <p>{{book.author}}</p>
             <h4> <a style="font-weight: bold;" href="{% url 'author' book.author.pk %}">{{ book.author }}</a></h4>
             <h4> <a style="font-weight: bold;" href="{% url 'category' book.category.pk %}">{{ book.category }}</a></h4>
+
+            {% if book in user_favorite_books %}
+                <p> "Favorites: "</p>
+                
+            {% endif %}
+
             <p>{{book.publish_date}}</p>
             <p>{{book.category}}</p>
             <p>{{book.review}}</p>
@@ -35,6 +41,5 @@
 
 
     {% endfor %}
-
  
     {% endblock %}
