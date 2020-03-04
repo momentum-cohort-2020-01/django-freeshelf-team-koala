@@ -30,19 +30,28 @@ class Category(models.Model):
 
 class Book(models.Model):
     title = models.CharField(max_length=100)
-    author = models.ForeignKey(Author, on_delete=models.DO_NOTHING)
+    author = models.ForeignKey(
+        Author, on_delete=models.SET_NULL, null=True, blank=True)
     publish_date = models.DateField(default=timezone.now)
     price = models.DecimalField(decimal_places=2, max_digits=8)
     description = models.TextField()
     reviews = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
     category = models.ForeignKey(
-        Category, on_delete=models.DO_NOTHING, null=True, blank=True)
+        Category, on_delete=models.SET_NULL, null=True, blank=True)
 
     def __str__(self):
         return f'{self.title}'
 
 
+class Favorite(models.Model):
+    user = models.ForeignKey(
+        User, related_name="favorites", on_delete=models.CASCADE)
+    book = models.ForeignKey(
+        Book, related_name="favorites", on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f'Favorite: {self.user, self.book}'
 
 # class Image(models.Model):
 #     image_name = models.CharField(max_length=400)

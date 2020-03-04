@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
-from .models import Book, Cart, Category, Author
+from .models import Book, Cart, Category, Author, Favorite, User
 
 # Create your views here.
 
@@ -9,8 +9,9 @@ def homepage(request):
     books = Book.objects.all()
     category = Category.objects.all()
     author = Author.objects.all()
-    return render(request, 'store/index.html', {'books': books, 'category': category, 'authors': author})
-
+    user_favorite_books = get_favorites_for_user(request)
+    # pass info via context items
+    return render(request, 'store/index.html', {'books': books, 'category': category, 'authors': author, 'user_favorite_books': user_favorite_books, })
 
 
 def book_details(request, pk):
@@ -21,11 +22,6 @@ def book_details(request, pk):
 def author(request):
     authors = Author.objects.all()
     return render(request, 'store/author.html', {'authors': authors})
-
-
-def book_details(request, pk):
-    book = get_object_or_404(Book, pk=pk)
-    return render(request, 'store/detail.html', {'book': book})
 
 
 def store(request):
@@ -43,7 +39,11 @@ def index(request):
     return render(request, 'index.html')
 
 
-
+def get_favorites_for_user(request):
+    user = User.models.get(username=request.user.username)
+    user_favorites = Favorite.models.filter(user=user)
+    user_favorite_books = [favorite.book for favorite in user_favorites.all()]
+    return user_favorite_books
 
 # def cart(request):
 #   if request.user.is_authenticated():
